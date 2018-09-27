@@ -11,7 +11,7 @@ env:
 before_install:
 - gem install mdl
 #- pip install --upgrade pip
-- pip install pipenv
+#- pip install pipenv
 #- npm install htmlhint -g
 
 # cache to improve build speed
