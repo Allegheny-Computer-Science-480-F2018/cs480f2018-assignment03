@@ -1,0 +1,28 @@
+
+# installations 
+before_install:
+- sudo apt-get update
+- gem install mdl
+- npm install htmlhint -g
+
+# command to install dependencies 
+install:
+  - pip install proselint
+
+# cache to improve build speed
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+cache:
+  directories:
+    - $HOME/.pip-cache/
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+# run checks on Markdown writing through mdl and proselint
+# run checks on the html using htmlhint
+script:
+  # Markdown
+  - mdl README.md
+  - proselint README.md
+#- htmlhint src/www/index.html

@@ -1,0 +1,175 @@
+\documentclass[11pt]{article}
+\newcommand{\command}[1]{``\lstinline{#1}''}
+\newcommand{\program}[1]{\lstinline{#1}}
+%\newcommand{\url}[1]{\lstinline{#1}}
+\newcommand{\channel}[1]{\lstinline{#1}}
+\newcommand{\option}[1]{``{#1}''}
+\newcommand{\step}[1]{``{#1}''}
+
+\newcommand{\assignmentduedate}{4 October}
+\newcommand{\assignmentassignedate}{ 27 September}
+\newcommand{\assignmentnumber}{Three}
+
+\newcommand{\labyear}{2018}
+\newcommand{\labtime}{2:30 pm}
+
+\newcommand{\assigneddate}{Assigned:  \assignmentassignedate, \labyear{} at \labtime{}}
+\newcommand{\duedate}{Due:  \assignmentduedate, \labyear{} at \labtime{}}
+
+\usepackage{pifont}
+\newcommand{\checkmark}{\ding{51}}
+\newcommand{\naughtmark}{\ding{55}}
+
+% Enable margin notes to catch student attention
+
+\usepackage{marginnote}
+\reversemarginpar
+\renewcommand*{\raggedrightmarginnote}{\centering}
+
+\newcommand{\caution}[1]{\null\hfill\LARGE{\faWarning{}}\newline\scriptsize{\em{#1}}}
+\newcommand{\discuss}[1]{\null\hfill\LARGE{\faCommentO{}}\newline\scriptsize{\em{#1}}}
+\newcommand{\resource}[1]{\null\hfill\LARGE{\faLink{}}\newline\scriptsize{\em{#1}}}
+\newcommand{\think}[1]{\null\hfill\LARGE{\faCogs{}}\newline\scriptsize{\em{#1}}}
+
+
+\usepackage{listings}
+\lstset{
+  basicstyle=\small\ttfamily,
+  columns=flexible,
+  breaklines=true
+}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=magenta,
+}
+
+\usepackage{fancyhdr}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+\usepackage{marginnote}
+\reversemarginpar
+\renewcommand*{\raggedrightmarginnote}{\centering}
+
+\fancyhf{}
+\rhead{Computer Science 480}
+\lhead{ Assignment \assignmentnumber{} }
+\rfoot{Page \thepage}
+\lfoot{\duedate}
+
+\usepackage{titlesec}
+\titlespacing\section{0pt}{6pt plus 4pt minus 2pt}{4pt plus 2pt minus 2pt}
+
+\newcommand{\labtitle}[1]
+{
+  \begin{center}
+    \begin{center}
+      \bf
+      CMPSC 480 \\ Software Innovation I\\
+      Fall 2018\\
+      \medskip
+    \end{center}
+    \bf
+    #1
+  \end{center}
+}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\labtitle{Assignment \assignmentnumber{} }
+\begin{center} \textbf{ \assigneddate{} \\ \duedate{} } \end{center} 
+\noindent \textbf{ }
+
+%\vspace{-0.05in}
+\section*{Objectives}
+
+% peer editing - editor on github
+% set up travis (just test writing) proselint
+% more social media connections/analytics
+
+To participate in a peer editing of a project by proper use of GitHub issues and comments. To practice tracking issues and comments in a GitHub repository. To make modifications to a project based on the peer editing outcome. To learn how to set up and use a continuous integration service to check the quality of the written content of a project. 
+
+%\vspace{-0.05in}
+\section*{Reading Assignment}
+%\vspace{-0.05in}
+
+To do well on this assignment, you
+should first read the \href{https://help.github.com/categories/writing-on-github/}{Writing on GitHub} and \href{https://help.github.com/articles/moderating-comments-and-conversations/}{Moderating comments and conversations}.
+Then, you need to become familiar with \href{https://guides.github.com/features/issues/}{Mastering Issues} on GitHub. Finally, you should get to know Travis CI by reading \href{https://docs.travis-ci.com/user/for-beginners}{Core Concepts for Beginners} and \href{https://docs.travis-ci.com/user/getting-started/}{Getting Started with Travis CI}, and learn about the linting tools to check the quality of your writing, called \href{https://github.com/amperser/proselint}{proselint} and \href{https://github.com/markdownlint/markdownlint}{mdl}.
+
+%\vspace{-0.05in}
+\section*{Peer Editing Websites}
+%\vspace{-0.05in}
+
+Each software innovator in the course must select one project containing a developer's website to edit. You then should place your name under ``Project Editor'' next to the ``Project Developer'' you select (the names of the developers are available in the course's Slack team). As a project editor you are responsible for:
+\vspace{-0.05in}
+\begin{enumerate}
+	\item Carefully studying the contents of the repository for the website you have selected. 
+	\item Following the instructions in the README to ensure you are able to build and deploy the site. 
+	\item Carefully evaluate the contents of the website while making note of whether it:
+	\begin{itemize}
+		\item provides an inviting layout, colors, design, etc.;
+		\item has a catchy introductory text; 
+		\item contains any writing mistakes;
+		\item has any developmental mistakes (errors in the code, no README, incorrect instructions, etc.).
+	\end{itemize}
+\end{enumerate} 
+\vspace{-0.05in}
+
+Now, you need to create an issue for each bug you have found on the website and each enhancement you recommend to the developer. You are required to create at least \textbf{three} issues. On the project repository's GitHub page, click on ``Issues'', then find a green button for ``New Issue''. Each of your issues must have:
+\vspace{-0.05in}
+\begin{itemize}
+	\item An informative title.
+	\item Provide a clear description of the problem/suggestion. 
+	\item The description that adheres to the standards described in the Markdown Syntax Guide.
+	\item Specify the website developer as an assignee.
+\end{itemize}
+
+Finally, you should provide a general feedback, a grand overview of your thoughts on the website, as a comment to the last commit made before class time (1:30 pm September 27). 
+
+Please complete your peer editing by the end of the day on Tuesday, October 2, to allow developers to have adequate time for modifications. 
+
+%\vspace{-0.05in}
+\section*{Travis CI Continuous Integration Service}
+%\vspace{-0.05in}
+
+Travis CI is a continuous integration platform that automatically builds and tests code changes and lets developers know about its success or failure. In this assignment you will use Travis CI to check the quality of the writing of your website project. Linting is the process of running a program that will analyze code for potential errors. We will use linting to check the quality of the writing in your project first by using tools such as \href{https://github.com/amperser/proselint}{proselint} and \href{https://github.com/markdownlint/markdownlint}{mdl}. 
+
+To get started you need to create {\tt .travis.yml} file that specifies which files you want to be checked by proselint. The GitHub repository for this assignment contains a sample {\tt .travis.yml} file for you to adopt. For example, to check the writing in the README file your {\tt .travis.yml} file would contain the following lines:
+\begin{verbatim}
+# run checks on Markdown writing through proselint script:
+  # Markdown
+  - proselint README.md
+\end{verbatim}
+
+Once you have the {\tt .travis.yml} file and you have authorized Travis CI, when you use the
+{\tt git push} command to transfer your source code to your GitHub repository, Travis CI will initialize a \step{build} of
+your assignment, checking to see if it meets all of the requirements established in the {\tt .travis.yml} file. If your  writing meets all of
+your established requirements, then you will see a green \checkmark{} in the listing of commits in GitHub. If your submission does not meet the requirements, a red \naughtmark{} will appear instead.
+
+\noindent \textbf{[Optional]} Please feel free to add other checks for Travis CI to run, in addition to checking the quality of your writing (this portion is optional for now). You should be able to find examples of {\tt .travis.yml} file for the specific tools you are using for your website project. For example, you can use \href{https://www.npmjs.com/package/htmlhint}{htmlhint} to check your {\tt html} files. After you add appropriate lines in the {\tt .travis.yml} to check the correctness of your code, you can even publish your website in \href{https://www.laroberto.com/publishing-in-netlify-via-travisci/}{Netlify via Travis CI}. You should also consider using linting tools for the web, such as \href{https://webhint.io/}{webhint} to check your site's accessibility, speed, security and more.
+
+%\vspace{-0.05in}
+\section*{Deliverables and Evaluation}
+%\vspace{-0.05in}
+
+You are invited to submit the following materials:
+\begin{enumerate}
+	\item At least two issues on your colleague's website repository describing specific mistakes or proposed enhancements (one per issue). 
+	\item One comment on your colleague's website repository, submitted as a response to the last commit, that describes the general feedback on the website overall. 
+	\item An updated GitHub repository, titled as the name of your website, that contains the contents of your website. Additionally, you should update your website based on the feedback you received (have at least three commits after 27 September). Finally, you should assign labels to the issues your editor and the instructor make and properly resolve them once they have been addressed. 
+	\item A properly formatted {\tt .travis.yml} file that uses linting tools to check the quality of the writing in your project. You are welcome to use tools other than {\tt proselint} and {\tt mdl} if you find they fit your needs better. 
+\end{enumerate}
+
+\textbf{The instructor will evaluate your website based on the timeliness of its submission (last commit before the due date will be graded), whether your website builds correctly, and whether it satisfies the characteristics of the website outlined in the sections above.}
+
+\end{document}
