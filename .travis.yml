@@ -10,7 +10,7 @@ env:
 # installations 
 before_install:
 - gem install mdl
-- pip install --upgrade pip
+#- pip install --upgrade pip
 - pip install pipenv
 #- npm install htmlhint -g
 
