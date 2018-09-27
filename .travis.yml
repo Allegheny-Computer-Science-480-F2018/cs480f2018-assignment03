@@ -1,13 +1,18 @@
+dist: trusty
+sudo: false
+
+# ignore the virtualenv that Travis creates
+env:
+  global:
+    - PIPENV_VENV_IN_PROJECT=1
+    - PIPENV_IGNORE_VIRTUALENVS=1
 
 # installations 
 before_install:
-- sudo apt-get update
-- gem install mdl
-- npm install htmlhint -g
-
-# command to install dependencies 
-install:
-  - pip install proselint
+- gr- gem install mdl
+- pip install --upgrade pip
+- pip install pipenv
+#- npm install htmlhint -g
 
 # cache to improve build speed
 before_cache:
@@ -24,5 +29,5 @@ cache:
 script:
   # Markdown
   - mdl README.md
-  - proselint README.md
+#  - proselint README.md
 #- htmlhint src/www/index.html
